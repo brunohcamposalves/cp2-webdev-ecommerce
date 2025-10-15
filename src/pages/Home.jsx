@@ -8,20 +8,31 @@ export default function Home() {
 
   useEffect(() => {
     fetch(`${API_URL}/products`)
-    .then((res) => res.json())
-    .then((res) => setProducts(res))
+      .then((res) => res.json())
+      .then((res) => setProducts(res))
+      .catch((err) => console.error(err));
   }, []);
 
   const filteredProducts = (categoryFilter) => {
-      return products.filter((product) => product.category === "electronics");
-  }
-
-  console.log(filteredProducts("eletronics"))
+    return products.filter((product) => product.category === categoryFilter);
+  };
 
   return (
     <div>
       <h2 className="text-2xl font-bold m-4">Bem-vindo ao Fiap Commerce!</h2>
-      <ProductSection title={"Eletrônicos"} products={filteredProducts("electronics")}  />
+      <ProductSection
+        title={"Eletrônicos"}
+        products={filteredProducts("electronics")}
+      />
+      <ProductSection
+        title={"Roupas Masculinas"}
+        products={filteredProducts("men's clothing")}
+      />
+      <ProductSection
+        title={"Roupas Femininas"}
+        products={filteredProducts("women's clothing")}
+      />
+      <ProductSection title={"Jóias"} products={filteredProducts("jewelery")} />
     </div>
   );
 }

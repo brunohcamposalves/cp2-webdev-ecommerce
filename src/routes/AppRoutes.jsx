@@ -3,6 +3,7 @@ import Home from "../pages/Home";
 import RootLayout from "../components/RootLayout";
 import Profile from "../pages/Profile";
 import ShoppingCart from "../pages/ShoppingCart";
+import Product from "../pages/Product";
 
 export const router = createBrowserRouter([
   {
@@ -21,7 +22,10 @@ export const router = createBrowserRouter([
         path: "/carrinho",
         element: <ShoppingCart />
       },
-      
+      {
+        path: "/product/:id",
+        element: <Product />
+      },
     ],
   },
 ]);

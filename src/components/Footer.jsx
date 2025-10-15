@@ -1,5 +1,5 @@
 export default function Footer() {
   return (
-    <div>Footer</div>
+    <div className="w-full bg-blue-400 p-10 text-center">Direito Reservados FIAP</div>
   )
 }
